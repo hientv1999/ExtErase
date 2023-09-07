@@ -27,6 +27,8 @@ print("Choose language:\n1.English\n2.Tiếng Việt")
 language = input ("-->")
 confirmation = ""
 if language == "1" :
+    if (len(extension_list) == 0):
+        sys.exit("No file to delete")
     while confirmation == "":
         print("In current directory, there are " + str(len(extension_list)) + " different file extensions")
         for i in range(len(extension_list)):
@@ -51,6 +53,8 @@ if language == "1" :
             os.remove(matched_files[i])
         input("Finished! Press Enter to exit program\n-->")
 if language == "2" :
+    if (len(extension_list) == 0):
+        sys.exit("Không có tệp nào để xóa")
     while confirmation == "":
         print("Trong thư mục hiện tại, có tất cả " + str(len(extension_list)) + " định dạng khác nhau" )
         for i in range(len(extension_list)):
