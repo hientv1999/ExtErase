@@ -6,16 +6,17 @@ try:
 except:
     print("Package 'tqdm' isn't installed. Installation process will begin soon")
     pip.main(['install', 'tqdm'])
-    sys.exit("Package installation process is completed. Please relaunch this script")
+    print("Package installation process is completed.")
 
-
+current_file_name = os.path.basename(__file__)
 # get all extension available in current directory
 files = [file for file in os.listdir('.') if os.path.isfile(os.path.join('.', file))]
 extension_list = set()
 for file in files:
-    extension = file.split(".")[1]
-    if (extension not in extension_list and extension != "exe"):
-        extension_list.add(extension)     
+    if file != current_file_name:
+        extension = file.split(".")[1]
+        if (extension not in extension_list):
+            extension_list.add(extension)     
 extension_list = list(extension_list)
 matched_files =[file for file in files if file.split(".")[1] == "extension_list[extension_index]"]
 #user interface
